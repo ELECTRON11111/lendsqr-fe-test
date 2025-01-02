@@ -1,7 +1,9 @@
+import Header from "../../components/Header/Header";
+
 const DashboardLayout = () => {
     return (
-        <div>
-            <h1>Dashboard Layout</h1>
+        <div id="dashboard-layout">
+            <Header />
         </div>
     );
 }
