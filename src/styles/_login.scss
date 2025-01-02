@@ -10,6 +10,7 @@
 
     .left {
         display: flex;
+        border-right: 2px solid rgba(84, 95, 125, 0.05);
         align-items: center;
         flex-direction: column;
         height: 100%;
@@ -146,6 +147,7 @@
             width: 100%;
             max-width: 100%;
             flex-direction: column-reverse;
+            border: 0;
 
             #logo {
                 align-self: center !important;
