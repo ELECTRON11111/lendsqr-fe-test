@@ -21,7 +21,7 @@ const Login = () => {
                         <p>Enter details to login.</p>
                     </div>
 
-                    <form action="">
+                    <div className="form">
                         <input type="email" placeholder="Email" name="email" id="email" />
                         
                         <div className="password-container">
@@ -31,7 +31,7 @@ const Login = () => {
 
                         <h5>FORGOT PASSWORD?</h5>
                         <button><Link to="/dashboard/users">LOG IN</Link></button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

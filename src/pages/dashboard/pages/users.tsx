@@ -2,7 +2,7 @@
 const Users = () => {
     return (
         <div>
-            <h1>Users</h1>
+            {/* <h1 style={{fontSize: "100rem", color: "black"}}>Users</h1> */}
         </div>
     );
 }
