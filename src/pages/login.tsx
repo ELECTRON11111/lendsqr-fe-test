@@ -21,7 +21,7 @@ const Login = () => {
                         <p>Enter details to login.</p>
                     </div>
 
-                    <form action="submit">
+                    <form action="">
                         <input type="email" placeholder="Email" name="email" id="email" />
                         
                         <div className="password-container">
@@ -30,7 +30,7 @@ const Login = () => {
                         </div>
 
                         <h5>FORGOT PASSWORD?</h5>
-                        <button><Link to="/dashboard">LOG IN</Link></button>
+                        <button><Link to="/dashboard/users">LOG IN</Link></button>
                     </form>
                 </div>
             </div>

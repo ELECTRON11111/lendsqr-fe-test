@@ -11,10 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />}/>
-          <Route path="dashboard" element={<DashboardLayout />}>
-            {/* <Route index element={<Users />} /> */}
-            {/* <Route path="/:id" element={<Users />} /> */}
-          </Route>
+          <Route path="/dashboard/users" element={<DashboardLayout />} />
           <Route path='*' element={<PageNotFound/>}/>
         </Routes>
       </BrowserRouter>
