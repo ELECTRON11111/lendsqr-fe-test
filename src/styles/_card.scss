@@ -1,0 +1,25 @@
+.card {
+    border: 1px solid #213F7D0F;
+    width: 240px;
+    // height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    box-shadow: 0px 5px 20px 0px #0000000A;
+    padding: 20px;
+    gap: 1rem;
+    margin: 10px;
+    cursor: pointer;
+
+    img {
+        width: fit-content;
+    }
+
+    &:hover {
+        background: hsl(180, 60%, 94%) !important;
+        scale: 1.2 !important;
+        transition: all !important;
+        transition-duration: 300ms !important;
+    }
+}
