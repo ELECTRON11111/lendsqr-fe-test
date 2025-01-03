@@ -1,0 +1,162 @@
+
+@import "./mixins";
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > div {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        
+        .items-per-page {
+            background: rgba(33, 63, 125, 0.1);
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin: 0 10px;
+            cursor: pointer;
+            position: relative;
+            
+            img {
+                object-fit: contain;
+                margin-left: 5px;
+            }
+            .dropdown-filter {
+                background: rgba(33, 63, 125, 0.1);
+                width: 100%;
+                position: absolute;
+                top: 110%;
+                left: 0;
+                text-align: center;
+                display: none;
+                
+                &.active {
+                    display: block;
+                }
+                p {
+                  padding: 3px 0;
+                  &:hover {
+                    background-color: hsla(180, 60%, 94%, 1);
+                  }
+                }
+            }
+        }
+    }
+
+    .pagination {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+
+        button {
+            border: none;
+            background: rgba(33, 63, 125, 0.1);
+            padding: 5px;
+            cursor: pointer;
+        }
+        li {
+            list-style: none;
+            margin-left: 10px;
+            color: #213F7D;
+            opacity: 0.6;
+        }
+        & > .active {
+            opacity: 1;
+        }
+    }
+}
+
+.table-container {  
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    color: #545f7d;
+    border-collapse: collapse;
+
+    th {
+       text-align: left;
+       padding: 10px 0;
+       white-space: nowrap;
+       div {
+           display: flex;
+           margin-right: 10px;
+       }
+       img {
+           margin-left: 10px;
+           object-fit: contain;
+           display: block;
+       }
+    }
+    tbody {
+
+       tr {
+           border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+           &:last-child {
+               border-bottom: none;
+           }
+
+           td { 
+              padding: 5px 0;
+              font-size: 14px;
+
+              div {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  position: relative;
+
+                  & > p {
+                   background-color: rgba(33, 63, 125, 0.1);
+                   padding: 8px;
+                   border-radius: 15px;
+                  }
+
+                  img {
+                   display: block;
+                   cursor:pointer;
+                  }
+              }
+           }
+       }
+    }
+
+}
+
+@media screen and (max-width: 1285px) {
+    .table-container {
+        overflow-x: auto;
+
+        thead tr th div {
+            margin-right: 15px;
+        }
+
+        tbody td {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .analytics-container {
+        grid-template-columns: repeat(2 , 48%);
+        grid-template-rows: auto auto;
+        grid-row-gap: 20px;
+    }
+
+    .table-container {
+        overflow-y: scroll;
+        table {
+            width: 300%;
+        }
+    }
+}
