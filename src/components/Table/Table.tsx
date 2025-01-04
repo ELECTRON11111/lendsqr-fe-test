@@ -3,24 +3,26 @@ import ellipsis from "../../assets/images/ellipsis.png"
 import Dropdown from "../Dropdown/Dropdown"
 import { useState } from "react"
 
+// generic type: user object
 type TableProps<T extends object> = {
-    users: T
-} // users is a generic of type object just as in he Users component
+  users: T
+} 
 
+// index signature: check individual objects
 type User = {
-   [key: string]: any
-}  //use index signature for type checking individual objects in the users array. 
+  [key: string]: any
+} 
 
 export default function Table<T extends object>({ users }: TableProps<T[]>) {
 
     const [ activeId, setActiveId ] = useState<string>('');
     
-    const shortenStr = (str: string, num: number): string => {
+    const shortenString = (str: string, num: number): string => {
         if(str.length > 7) {
           return `${str.slice(0, num)}...`
         }
         else {
-           return str
+          return str
         }
       }
     
@@ -72,7 +74,7 @@ export default function Table<T extends object>({ users }: TableProps<T[]>) {
            
             {
             users.map((user: User) => {  
-              const { id, orgName, userName, email, phoneNumber, createdAt } = user
+              const { id, orgName, userName, email, phoneNumber, createdAt, status } = user
                 
               return (
                 <tr key={id} className="tr-body">
@@ -83,9 +85,9 @@ export default function Table<T extends object>({ users }: TableProps<T[]>) {
                 <td>{createdAt}</td>   
                 <td>
                   <div>
-                    <p className='status'>Inactive</p>
+                    <p className={`status ${status.toString().toLocaleLowerCase()}`}>{status}</p>
                     <img src={ellipsis} alt="ellipsis icon"
-                    onMouseEnter={() => setActiveId(id)} 
+                    onMouseEnter={() => {setActiveId(id)}} 
                     />
                     <Dropdown id={id} toggleDropdown={{activeId, setActiveId}}/>
                   </div>

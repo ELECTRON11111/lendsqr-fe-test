@@ -1,11 +1,11 @@
 #users-page {
     font-family: "Work Sans", sans-serif;
-    position: relative;
+    position: relative !important;
     z-index: -1;
     top: 0;
     left: 0;
     background: #fafafa;
-    padding: 100px 20px 100px 350px;
+    padding: 100px 30px 100px 320px;
 
     #cards {
         margin: 20px 0;
@@ -64,6 +64,8 @@
     }
 
     @media screen and (max-width: 750px) {
+        padding-right: 20px;
+
         #cards {
             gap: 15px 10px;
 

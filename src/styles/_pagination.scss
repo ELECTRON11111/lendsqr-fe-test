@@ -89,6 +89,7 @@ table {
        div {
            display: flex;
            margin-right: 10px;
+           position: relative;
        }
        img {
            margin-left: 10px;
@@ -107,6 +108,7 @@ table {
 
            td { 
               padding: 5px 0;
+              padding-right: 5px;
               font-size: 14px;
 
               div {
@@ -114,16 +116,32 @@ table {
                   justify-content: space-between;
                   align-items: center;
                   position: relative;
-
+                
                   & > p {
                    background-color: rgba(33, 63, 125, 0.1);
                    padding: 8px;
                    border-radius: 15px;
+                   margin-right: 10px;
+                  }
+
+                  & > .active {
+                    color: #39CD62;
+                    background: #f3fcf6;
+                  }
+
+                  & > .pending {
+                    color: #E9B200;
+                    background: #fdf7e5;
+                  }
+
+                  & > .blacklisted {
+                    color: #E4033B;
+                    background-color: #fce6eb;
                   }
 
                   img {
-                   display: block;
-                   cursor:pointer;
+                    cursor:pointer;
+                    display: block;
                   }
               }
            }

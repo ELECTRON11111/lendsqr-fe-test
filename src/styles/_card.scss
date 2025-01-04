@@ -18,8 +18,15 @@
 
     &:hover {
         background: hsl(180, 60%, 94%) !important;
-        scale: 1.2 !important;
+        scale: 1.1 !important;
         transition: all !important;
         transition-duration: 300ms !important;
+   }
+
+   @media screen and (max-width: 768px) {
+    &:hover {
+        scale: 1.05 !important;
+    }
+
     }
 }

@@ -2,6 +2,7 @@ import viewDetails from '../../assets/images/view-details.png'
 import blacklist from '../../assets/images/blacklist.png'
 import activate from '../../assets/images/activate.png'
 import { Link } from 'react-router-dom'
+import "../../styles/_dropdown.scss"
 
 type DropdownProps = {
     id: string
@@ -13,7 +14,7 @@ export default function Dropdown({ id, toggleDropdown } : DropdownProps) {
 
     return (
         <ul
-         onMouseEnter={() => setActiveId(id)}
+         onMouseEnter={() => {setActiveId(id)}}
          onMouseLeave={() => setActiveId('')}
          className={`${(id === activeId) ? 'show' : '' } dropdown`}>
             <Link style={{

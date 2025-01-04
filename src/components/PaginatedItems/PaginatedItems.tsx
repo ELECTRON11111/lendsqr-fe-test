@@ -21,14 +21,6 @@ const PaginatedItems = () => {
 
   return (
     <div id='PaginatedItems'>
-      {/* <Table users={[{ 
-        id: "An ID", orgName:"Lendsqr", userName:"Tayo Micheal", email:"someone@email.com", phoneNumber: "09093063026", createdAt: "May 15, 2020 10:00 AM" 
-        }, {
-          id: "2", orgName:"Lendsqr", userName:"Tayo Micheal", email:"someone@email.com", phoneNumber: "09093063026", createdAt: "May 15, 2020 10:00 AM" 
-        }, {
-          id: "3", orgName:"Lendsqr", userName:"Tayo Micheal", email:"someone@email.com", phoneNumber: "09093063026", createdAt: "May 15, 2020 10:00 AM" 
-        }]}/> */}
-
       <Table users={[...userList]}/>
     </div>
   );
