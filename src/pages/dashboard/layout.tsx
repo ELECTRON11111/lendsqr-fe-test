@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
 import PageNotFound from "../404";
 import Users from "./pages/users";
-// import UserDetails from ""
+import UserDetails from "./pages/userDetails";
 
 const DashboardLayout = () => {
     const [show, setShow] = useState(false);
@@ -22,7 +22,7 @@ const DashboardRoutes = () => (
     <Routes>
         <Route path="/" element={<DashboardLayout />}>
             <Route path="users" element={<Users />} />
-            <Route path="users/:userId" element={<div>User Details</div>} />
+            <Route path="users/:userId" element={<UserDetails />} />
             <Route path="*" element={<PageNotFound />} />
         </Route>
     </Routes>
