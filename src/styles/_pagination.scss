@@ -121,6 +121,10 @@ table {
             align-items: start;
             gap: 1.2rem;
 
+            p {
+                cursor: pointer;
+            }
+
             #active {
                 font-weight: 600;
             }
