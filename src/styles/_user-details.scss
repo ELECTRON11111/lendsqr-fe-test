@@ -301,7 +301,28 @@
 
 }
 
+@media screen and (max-width: 400px) {
+    .user-name {
+        p:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        p:last-child {
+            text-align: left;
+            font-size: 10px !important;
+        }
+    }
+
+    .col-2 {
+        display: none;
+    }
+}
+
 @include media-md {
+    #user-avatar-container {
+        max-width: fit-content;
+    }
 
     .user-details-container {
 

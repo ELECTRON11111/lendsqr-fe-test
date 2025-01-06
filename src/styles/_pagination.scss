@@ -1,75 +1,6 @@
 
 @import "./mixins";
 
-.pagination-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    & > div {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        
-        .items-per-page {
-            background: rgba(33, 63, 125, 0.1);
-            display: flex;
-            align-items: center;
-            border-radius: 4px;
-            padding: 5px 10px;
-            margin: 0 10px;
-            cursor: pointer;
-            position: relative;
-            
-            img {
-                object-fit: contain;
-                margin-left: 5px;
-            }
-            .dropdown-filter {
-                background: rgba(33, 63, 125, 0.1);
-                width: 100%;
-                position: absolute;
-                top: 110%;
-                left: 0;
-                text-align: center;
-                display: none;
-                
-                &.active {
-                    display: block;
-                }
-                p {
-                  padding: 3px 0;
-                  &:hover {
-                    background-color: hsla(180, 60%, 94%, 1);
-                  }
-                }
-            }
-        }
-    }
-
-    .pagination {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-
-        button {
-            border: none;
-            background: rgba(33, 63, 125, 0.1);
-            padding: 5px;
-            cursor: pointer;
-        }
-        li {
-            list-style: none;
-            margin-left: 10px;
-            color: #213F7D;
-            opacity: 0.6;
-        }
-        & > .active {
-            opacity: 1;
-        }
-    }
-}
-
 .table-container {  
     background-color: white;
     border-radius: 4px;
@@ -150,6 +81,62 @@ table {
 
 }
 
+#pages_and_navigations {
+    padding: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #users_per_page {
+        font: "Work Sans";
+        color: #545F7D;
+        font-weight: 400;
+        display: flex;
+        gap: 0.5rem;
+
+        select {
+            border: 1px solid #e5e8ee;
+            border-radius: 4px;
+            background-color: #e5e8ee;
+            height: fit-content;
+            padding: 4px 6px;
+            cursor: pointer;
+
+            option {
+                font: #213F7D;
+            }
+        }
+    } 
+
+    #navigations {
+        display: flex;
+        gap: 1.2rem;
+        font-family: "Work Sans", sans-serif;
+        color: #545F7D;
+        font-weight: 400;
+        
+        #pages {
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+
+            #active {
+                font-weight: 600;
+            }
+        }
+
+        .next, .prev {
+            padding: 5px;
+            background: #e5e8ee;
+            align-self: center;
+            padding-top: 3px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}
+
 @media screen and (max-width: 1285px) {
     .table-container {
         overflow-x: auto;
@@ -178,3 +165,13 @@ table {
         }
     }
 }
+
+@media screen and (max-width: 550px) {
+    #pages_and_navigations {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+
