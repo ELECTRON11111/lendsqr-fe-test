@@ -8,6 +8,10 @@
     height: 95vh;
     font-family: "Avenir Next", sans-serif;
 
+    .error {
+        color: red;
+    }
+
     .left {
         display: flex;
         border-right: 2px solid rgba(84, 95, 125, 0.05);

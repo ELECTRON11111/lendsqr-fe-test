@@ -1,0 +1,96 @@
+#filter {
+    position: absolute;
+    top: 5rem;
+    background: white;
+    padding: 2rem 1rem;
+    width: 250px;
+    border-radius: 8px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04), 0px 10px 30px rgba(0, 0, 0, 0.1);  
+    gap: 1rem;
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+
+        button {
+            padding: 15px 10px;
+            width: 7rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .reset-btn {
+            font-family: "Work Sans", sans-serif;
+            font-weight: 600;
+            color: #545F7D;
+            border: 1px solid #545F7D;
+            background: white;
+            
+            &:hover {
+                background: #949797;
+                color: white;
+            }
+        }
+
+        .filter-btn {
+            font-family: "Work Sans", sans-serif;
+            background: #39CDCC;
+            color: white;
+            font-weight: 600;
+            border: 1px solid #39CDCC;
+
+            &:hover {
+                background: #2F9CA2;
+            }
+        }
+    }
+
+    label {
+        font-family: "Work Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.42px;
+        color: #545F7D;
+    }
+
+    select {
+        width: 100%;
+        height: 40px;
+        padding: 5px 10px;
+        border: 1px 0px 0px 0px;
+        border-radius: 8px;
+        border: 1px solid #545F7D;
+        cursor: pointer;
+        font-family: "Work Sans";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.42px;
+        color: #545F7D;
+
+        option {
+            cursor: pointer;
+        }
+    }
+    
+    input {
+        padding: 10px 10px;
+        border-radius: 8px;
+        border: 1px solid #545F7D;
+        font-family: "Work Sans";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.42px;
+        color: #545F7D;
+    }
+}

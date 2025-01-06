@@ -1,6 +1,7 @@
 import filter from "../../assets/images/filter.png";
-import ellipsis from "../../assets/images/ellipsis.png"
-import Dropdown from "../Dropdown/Dropdown"
+import ellipsis from "../../assets/images/ellipsis.png";
+import Dropdown from "../Dropdown/Dropdown";
+import Filter from "../Filter/Filter";
 import { useState } from "react"
 
 // generic type: user object
@@ -15,57 +16,49 @@ type User = {
 
 export default function Table<T extends object>({ users }: TableProps<T[]>) {
 
-    const [ activeId, setActiveId ] = useState<string>('');
-    
-    const shortenString = (str: string, num: number): string => {
-        if(str.length > 7) {
-          return `${str.slice(0, num)}...`
-        }
-        else {
-          return str
-        }
-      }
+    const [activeId, setActiveId ] = useState<string>('');
+    const [showFilter, updateShowFilter] = useState<boolean>(false);
     
     return (
-
         <section className="table-container">
         <table>
          <thead>
          <tr>
-           <th>
+           <th style={{position: "relative"}}>
+              <Filter show={showFilter} />  
              <div>
             <p>Organization</p>
-            <img src={filter} alt='filter icon'/> 
+            <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/> 
              </div>
            </th>
            <th>
            <div>
             <p>Username</p> 
-            <img src={filter} alt='filter icon'/>  
+            <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>
             </div>    
            </th>
            <th>
            <div>
             <p>Email</p> 
-            <img src={filter} alt='filter icon'/>      
+            <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>      
            </div>
            </th>
            <th>
              <div>
             <p>Phone Number</p> 
-            <img src={filter} alt='filter icon'/>    
+            <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>    
              </div>
            </th>
            <th>
              <div>
             <p>Date Joined</p> 
-            <img src={filter} alt='filter icon'/>    
+            <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>    
              </div>
            </th>
            <th>
              <div>
              <p>Status</p>    
-             <img src={filter} alt='filter icon'/> 
+             <img src={filter} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/> 
              </div>
            </th>
          </tr>
