@@ -15,7 +15,7 @@ const Login = () => {
 
     const handleLoginClick = () => {
         if (!email || !password) {
-            setError("All fields are required");
+            setError("All fields are required. Use any email or password");
             return;
         }
         setLoading(true);
