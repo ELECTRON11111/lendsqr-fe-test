@@ -15,13 +15,11 @@ export default function UserDetails():JSX.Element {
     const id = paramValues.userId;
     
     const fetchUserDetails = (): void => {
-      console.log(paramValues.userId)
       const usersFromLocalStorage = localStorage.getItem('users')
       if(usersFromLocalStorage) {
         const users: {[key: string] : any}[] = JSON.parse(usersFromLocalStorage); //users is an array of objects
         // Loop through the users array and find if the id of a particular user is present
         let user = users.find((u) => u.id == id? u: undefined);
-        console.log(user)
 
         if(user){
           setUser(user["user_details"])
