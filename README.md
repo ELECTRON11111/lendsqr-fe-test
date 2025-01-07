@@ -2,8 +2,12 @@
 
 This project is a frontend application built with React, TypeScript, and Vite. It provides a user interface for managing users, including features like login, user listing, user details, and more.
 
-## Project Structure
+## Technologies Used
+ - React
+ - Typescript
+ - SCSS
 
+## Project Structure
 
 assets/
     fonts/
@@ -17,16 +21,9 @@ components/
     PaginatedItems/
     Skeleton/
     Table/
-
-
 pages/
-    
-    dashboard/
-    
+    dashboard/  
 styles/
-    
-    
-    
     
     
     
