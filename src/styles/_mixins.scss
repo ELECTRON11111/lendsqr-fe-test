@@ -1,0 +1,29 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin loginInputs {
+    width: 100%;
+    display: flex;
+    padding: 0.8rem 0;
+    padding-left: 0.6rem;
+    color: #545F7D;
+    font-weight: lighter;
+    border: 2px solid #545F7D26;
+    border-radius: 5px;
+    max-width: 98%;
+}
+
+@mixin media-md {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}

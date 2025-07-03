@@ -14,7 +14,7 @@ const Page = () => {
     return (
         <div id='Dashboard'>
             <Image 
-                src={"/lendsqr-logo.svg"}
+                src={"/login/lendsqr-logo.svg"}
                 alt='Lendsqr Logo'
                 width={245}
                 height={245}
