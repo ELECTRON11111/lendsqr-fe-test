@@ -5,14 +5,13 @@ import { usePathname } from 'next/navigation';
 import "@/styles/_navigationbar.scss";
 
 export default function NavigationBar({ show }: { show: boolean }) {
-   
    const router = useRouter();
    const pathname = usePathname();
 
    const handleLogOut = () => {
        router.push('/');
        sessionStorage.removeItem('auth');
-   }
+    } 
 
    return (
         <aside className={`${show ? 'show' : ''} sidebar`}>

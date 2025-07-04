@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 
 const Page = () => {
@@ -12,16 +12,18 @@ const Page = () => {
     }, []);
 
     return (
-        <div id='Dashboard'>
-            <Image 
-                src={"/login/lendsqr-logo.svg"}
-                alt='Lendsqr Logo'
-                width={245}
-                height={245}
-            />
+        <>
+            <div id='Dashboard'>
+                <Image 
+                    src={"/login/lendsqr-logo.svg"}
+                    alt='Lendsqr Logo'
+                    width={245}
+                    height={245}
+                />
 
-            <h1>Redirecting to Users Page ...</h1>
-        </div>
+                <h1>Redirecting to Users Page ...</h1>
+            </div>
+        </>
     );
 }
 
