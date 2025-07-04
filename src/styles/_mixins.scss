@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+@mixin easeTransition {
+    transition: all ease-out 3000;
+}
+
 @mixin loginInputs {
     width: 100%;
     display: flex;
