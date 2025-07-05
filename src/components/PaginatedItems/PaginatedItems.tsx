@@ -16,19 +16,21 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
     userName: searchParams.get("userName") || "",
     email: searchParams.get("email") || "",
     phoneNumber: searchParams.get("phoneNumber") || "",
-    status: searchParams.get("status") || "all" // <-- set default to "all"
+    status: searchParams.get("status") || "all",
+    searchQuery: searchParams.get("search") || ""
   };
 
   const totalPages = Math.ceil(userList.length / usersPerPage);
 
   useLayoutEffect(() => {
     // Check if all filters are empty or default
-    const allEmpty = 
+    const allEmpty =
       (!filters.orgName || filters.orgName === "all") &&
       !filters.userName &&
       !filters.email &&
       !filters.phoneNumber &&
-      (!filters.status || filters.status === "all"); // <-- treat "all" as empty/default
+      !filters.searchQuery &&
+      (!filters.status || filters.status === "all");
 
     let filteredUsers = userList;
 
@@ -40,18 +42,39 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
           orgNameFilter === "all" ||
           user.orgName?.toLowerCase().includes(orgNameFilter);
 
-        const matchesUserName = filters.userName ? user.userName?.toLowerCase().includes(filters.userName.toLowerCase()) : true;
-        const matchesEmail = filters.email ? user.email?.toLowerCase().includes(filters.email.toLowerCase()) : true;
-        const matchesPhoneNumber = filters.phoneNumber ? user.phoneNumber?.toLowerCase().includes(filters.phoneNumber.toLowerCase()) : true;
-        const matchesStatus = !filters.status || filters.status === "all"
-          ? true
-          : user.status?.toLowerCase() === filters.status.toLowerCase();
+        const matchesUserName = filters.userName
+          ? user.userName?.toLowerCase().includes(filters.userName.toLowerCase())
+          : true;
 
-        return matchesOrgName && matchesUserName && matchesEmail && matchesPhoneNumber && matchesStatus;
+        const matchesEmail = filters.email
+          ? user.email?.toLowerCase().includes(filters.email.toLowerCase())
+          : filters.searchQuery
+            ? user.email?.toLowerCase().includes(filters.searchQuery.toLowerCase())
+            : true;
+
+        const matchesPhoneNumber = filters.phoneNumber
+          ? user.phoneNumber?.toLowerCase().includes(filters.phoneNumber.toLowerCase())
+          : true;
+
+        const matchesStatus =
+          !filters.status || filters.status === "all"
+            ? true
+            : user.status?.toLowerCase() === filters.status.toLowerCase();
+
+        return (
+          matchesOrgName &&
+          matchesUserName &&
+          matchesEmail &&
+          matchesPhoneNumber &&
+          matchesStatus
+        );
       });
     }
 
-    const currentUsers: User[] = filteredUsers.slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage);
+    const currentUsers: User[] = filteredUsers.slice(
+      (currentPage - 1) * usersPerPage,
+      currentPage * usersPerPage
+    );
     setUsersToShow(currentUsers);
   }, [userList, searchParams, currentPage, usersPerPage]);
 
@@ -75,8 +98,6 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
       setCurrentPage(currentPage - 1);
     }
   };
-
-  // const currentUsers = userList.slice((currentPage - 1) * usersPerPage, currentPage * usersPerPage);
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
