@@ -1,4 +1,9 @@
-const Card = (props: {imgSrc: string, title: string, numbers: string, className?: string}) => {
+const Card = (props: {
+    imgSrc: string, 
+    title: string, 
+    numbers: string | number, 
+    className?: string
+}) => {
     return (
         <div className='card'>
             <img src={props.imgSrc} alt='card icon'/>

@@ -1,39 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Table from '../Table/Table';
 import Skeleton from '../Skeleton/Skeleton';
+import { User } from '@/types/userTypes';
 
-const PaginatedItems = () => {
-  const [userList, updateUserList] = useState([]);
-  const [loading, updateLoading] = useState(false);
+const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: User[] } ) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(20);
-  // Should be in env variable (Left that out because of its not a production app)
-  const baseUrl = `https://opemipoomoniyi.free.beeceptor.com`; 
-  const apiConfig = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  useEffect(() => {
-    updateLoading(true);
-    const users = localStorage.getItem('users');
-    if (users) {
-      updateUserList(JSON.parse(users));
-      updateLoading(false);
-      return;
-    }
-
-    // Fetch data from API
-    fetch(`${baseUrl}/users`, apiConfig)
-      .then(response => response.json())
-      .then(list => {
-        updateUserList(list);
-        localStorage.setItem('users', JSON.stringify(list));
-        updateLoading(false);
-      });
-  }, []);
 
   const totalPages = Math.ceil(userList.length / usersPerPage);
 
@@ -100,6 +72,7 @@ const PaginatedItems = () => {
     <div id='PaginatedItems'>
       {loading && userList.length === 0 ? (
         <div id='loader' style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <Skeleton />
           <Skeleton />
           <Skeleton />
           <Skeleton />
