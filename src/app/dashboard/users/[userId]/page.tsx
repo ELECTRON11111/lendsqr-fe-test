@@ -22,7 +22,7 @@ export default function Page() {
         let user = users.find((u) => u.id == id? u: undefined);
 
         if(user){
-          setUser(user["user_details"])
+          setUser(user);
         }
       } else {
         setUser(<h1>User not available</h1>)
@@ -68,37 +68,39 @@ export default function Page() {
                 <main className="user-details-container">
                     <div className="title-container">
                         <h1>User Details</h1>
-                        <div className="button-container">
-                            <button>Blacklist User</button>
-                            <button>Activate User</button>
-                        </div>
+                        {user && !(user.status.toLowerCase() == "blacklisted" || user.status.toLowerCase() == "Activated") &&
+                            <div className="button-container">
+                                <button>Blacklist User</button>
+                                <button>Activate User</button>
+                            </div>
+                        }
                     </div>
                     { user && (
                     <>
                         <section className="user-details">
-                        <div>
-                        <div className="avatar-container">
-                            <div id="user-avatar-container"><img src={'/user-details/user-avatar.svg'} alt='avatar'/></div>
-                            <div className='user-name'>
-                            <p>{`${user.personal_info.full_name}`}</p>  
-                            <p>{user.id}</p>  
-                            </div>
-                            </div>
                             <div>
-                            <div className="col-2">
-                                <p>User's Tier</p>
-                                <div>
-                                    <img src={'/user-details/full-star.png'} alt='full star icon'/>
-                                    <img src={'/user-details/empty-star.png'} alt='full star icon'/>
-                                    <img src={'/user-details/empty-star.png'} alt='full star icon'/>
+                                <div className="avatar-container">
+                                    <div id="user-avatar-container"><img src={'/user-details/user-avatar.svg'} alt='avatar'/></div>
+                                        <div className='user-name'>
+                                            <p>{`${user.userName}`}</p>  
+                                            <p>{user["user_details"].id}</p>  
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="col-2">
+                                            <p>User's Tier</p>
+                                            <div>
+                                                <img src={'/user-details/full-star.png'} alt='full star icon'/>
+                                                <img src={'/user-details/empty-star.png'} alt='full star icon'/>
+                                                <img src={'/user-details/empty-star.png'} alt='full star icon'/>
+                                            </div>
+                                        </div> 
+                                        <div className="col-3">
+                                            <p>{formatCurrency(user["user_details"].account_balance)}</p>
+                                            <p>0123456789/{user["user_details"].bank}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> 
-                            <div className="col-3">
-                                <p>{formatCurrency(user.account_balance)}</p>
-                                <p>0123456789/{user.bank}</p>
-                            </div>
-                            </div>
-                            </div>
                             <footer>
                                 <p onClick={() => setActive('General Settings')} className={`${active === 'General Settings' ? 'active' : ''}`}>General Details</p>
                                 <p>Documents</p>
@@ -116,19 +118,19 @@ export default function Page() {
                                 <div className="personal-info-table">
                                     <div>
                                         <p>Full Name</p> 
-                                        <p>{user.personal_info.full_name}</p>    
+                                        <p>{user.userName}</p>    
                                     </div>
                                     <div>
                                         <p>Phone Number</p> 
-                                        <p>{user.personal_info.phone_number}</p>    
+                                        <p>{user.phoneNumber}</p>    
                                     </div>
                                     <div>
                                         <p>Email Address</p> 
-                                        <p>{user.personal_info.email_address}</p>    
+                                        <p>{user.email}</p>    
                                     </div>
                                     <div>
                                         <p>BVN</p> 
-                                        <p>{user.bvn}</p>    
+                                        <p>{user["user_details"].bvn}</p>    
                                     </div>
                                     <div>
                                         <p>Gender</p> 
@@ -136,15 +138,15 @@ export default function Page() {
                                     </div>
                                     <div>
                                         <p>Marital Status</p> 
-                                        <p>{user.personal_info.marital_status}</p>    
+                                        <p>{user["user_details"].personal_info.marital_status}</p>    
                                     </div>
                                     <div>
                                         <p>Children</p> 
-                                        <p>{user.personal_info.children}</p>    
+                                        <p>{user["user_details"].personal_info.children}</p>    
                                     </div>
                                     <div>
                                         <p>Type of Residence</p> 
-                                        <p>{user.personal_info.type_of_residence}</p>    
+                                        <p>{user["user_details"].personal_info.type_of_residence}</p>    
                                     </div>
                                 </div> 
                             </div>
@@ -154,31 +156,34 @@ export default function Page() {
                                 <div className="education-table">
                                     <div>
                                         <p>Level of Education</p> 
-                                        <p>{user.education_and_employment.level_of_education}</p>    
+                                        <p>{user["user_details"].education_and_employment.level_of_education}</p>    
                                     </div>
                                     <div>
                                         <p>Employment Status</p> 
-                                        <p>{user.education_and_employment.employment_status}</p>    
+                                        <p>{user["user_details"].education_and_employment.employment_status}</p>    
                                     </div>
                                     <div>
                                         <p>Sector of Residence</p> 
-                                        <p>{user.education_and_employment.sector_of_employment}</p>    
+                                        <p>{user["user_details"].education_and_employment.sector_of_employment}</p>    
                                     </div>
                                     <div>
                                         <p>Duration of Employment</p> 
-                                        <p>{user.education_and_employment.duration_of_employment}</p>    
+                                        <p>{user["user_details"].education_and_employment.duration_of_employment}</p>    
                                     </div>
                                     <div>
                                         <p>Office Email</p> 
-                                        <p>{user.education_and_employment.office_email}</p>    
+                                        <p>{user.email}</p>    
                                     </div>
                                     <div>
                                         <p>Monthly Income</p> 
-                                        <p>{user.education_and_employment.monthly_income}</p>    
+                                        <p>
+                                            {formatCurrency(user["user_details"].education_and_employment.monthly_income.split("-")[0])}
+                                            - {formatCurrency(user["user_details"].education_and_employment.monthly_income.split("-")[1].trim())}
+                                        </p>    
                                     </div>
                                     <div>
                                         <p>Loan Repayment</p> 
-                                        <p>{formatCurrency(user.education_and_employment.loan_repayment)}</p>    
+                                        <p>{formatCurrency(user["user_details"].education_and_employment.loan_repayment)}</p>    
                                     </div>
                                 </div>
                             </div>
@@ -188,15 +193,15 @@ export default function Page() {
                             <div className="socials-table">
                                 <div>
                                     <p>Twitter</p> 
-                                    <p>{user.socials.twitter}</p>    
+                                    <p>{user["user_details"].socials.twitter}</p>    
                                 </div>                
                                 <div>
                                     <p>Facebook</p> 
-                                    <p>{user.socials.facebook}</p>    
+                                    <p>{user["user_details"].socials.facebook}</p>    
                                 </div>                
                                 <div>
                                     <p>Instagram</p> 
-                                    <p>{user.socials.instagram}</p>    
+                                    <p>{user["user_details"].socials.instagram}</p>    
                                 </div>                
                             </div>
                             </div>
@@ -206,19 +211,19 @@ export default function Page() {
                             <div className="guarantor-table">
                                 <div>
                                     <p>Full Name</p> 
-                                    <p>{user.guarantor.full_name}</p>    
+                                    <p>{user["user_details"].guarantor.full_name}</p>    
                                 </div>                
                                 <div>
                                     <p>Phone Number</p> 
-                                    <p>{user.guarantor.phone_number}</p>    
+                                    <p>{user["user_details"].guarantor.phone_number}</p>    
                                 </div>                
                                 <div>
                                     <p>Email</p> 
-                                    <p>{user.guarantor.email_address}</p>    
+                                    <p>{user["user_details"].guarantor.email_address}</p>    
                                 </div>                
                                 <div>
                                     <p>Relationship</p> 
-                                    <p>{user.guarantor.relationship}</p>    
+                                    <p>{user["user_details"].guarantor.relationship}</p>    
                                 </div>                
                             </div>
                             </div>
