@@ -1,5 +1,6 @@
 
-@import "./mixins";
+@use "./mixins";
+@use "./config" as variables;
 
 .table-container {  
     background-color: white;
@@ -81,6 +82,38 @@ table {
        }
     }
 
+}
+
+#empty-users-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        text-align: center;
+    }
+
+    & h1 {
+        color: variables.$text-primary;
+    }
+
+    .filter-btn {
+        font-family: "Work Sans", sans-serif;
+        background: #39CDCC;
+        color: white;
+        cursor: pointer;
+        margin: 10px 0;
+        padding: 14px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        border: 1px solid #39CDCC;
+
+        &:hover {
+            background: #2F9CA2;
+        }
+    }
 }
 
 #pages_and_navigations {

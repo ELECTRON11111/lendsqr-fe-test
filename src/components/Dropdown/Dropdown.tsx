@@ -3,7 +3,7 @@ import "../../styles/_dropdown.scss"
 
 type DropdownProps = {
     id: string
-    toggleDropdown: { activeId: string, setActiveId:  React.Dispatch<React.SetStateAction<string>>}
+    toggleDropdown: { activeId: string | number, setActiveId:  React.Dispatch<React.SetStateAction<string | number>>}
 }
 
 export default function Dropdown({ id, toggleDropdown } : DropdownProps) {
