@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Spinner from "@/components/Spinner/Spinner";
 
+
+function isValidEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
 const Page = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");
@@ -17,6 +23,12 @@ const Page = () => {
           setError("All fields are required. Use any email or password");
           return;
         }
+
+        if (!isValidEmail(email)) {
+            setError("Please enter a valid email address (Any)");
+            return;
+        }
+
         setLoading(true);
         setError("");
         setTimeout(() => {

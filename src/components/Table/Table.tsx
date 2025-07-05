@@ -23,7 +23,7 @@ export default function Table<T extends object>({ users }: TableProps<T[]>) {
          <thead>
          <tr>
            <th style={{position: "relative"}}>
-              <Filter show={showFilter} />  
+              <Filter show={showFilter} closeFilter={() => updateShowFilter(false)} />  
              <div>
             <p>Organization</p>
             <img src={'/table/filter.png'} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/> 

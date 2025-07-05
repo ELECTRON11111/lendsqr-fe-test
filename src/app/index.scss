@@ -42,3 +42,8 @@ body {
 h2 {
     font-family: 'Avenir Next', sans-serif;
 }
+
+button:active {
+    transition: all 0.3s ease-out;
+    scale: 0.9;
+}

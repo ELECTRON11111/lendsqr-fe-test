@@ -3,7 +3,7 @@
 
 #login {
     @include mixins.flexCenter();
-    justify-content: start;
+    justify-content: flex-start;
     display: flex;
     width: 100%;
     scale: .92;
@@ -22,11 +22,11 @@
         height: 100%;
         width: 50%;
         justify-content: space-around;
-        align-self: start;
+        align-self: flex-start;
         background: opacity($color: gray) 5%;
 
         #logo {
-            align-self: start;
+            align-self: flex-start;
             padding-left: 4.5rem;
             width: 173.76px;
             height: 36px;
