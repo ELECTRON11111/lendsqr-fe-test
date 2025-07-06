@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
-const Header = ({ handleClick, }: { handleClick: () => void }) => {
+const Header = ({ handleClick }: { handleClick: () => void }) => {
     const router = useRouter();
     const searchInputRef = useRef(null);
 
@@ -22,9 +22,9 @@ const Header = ({ handleClick, }: { handleClick: () => void }) => {
 
             <div className="search">
                 <input type="text" data-testid="search-input" ref={searchInputRef} placeholder="Search for anything" />
-                <button data-testid="search" onClick={() => handleSearch((searchInputRef.current as unknown as HTMLInputElement).value)}>
+                <span data-testid="search" onClick={() => handleSearch((searchInputRef.current as unknown as HTMLInputElement).value)}>
                     <img src={'/dashboard-header/search-icon.svg'} id="search-icon"/>
-                </button>
+                </span>
             </div>
 
             <div className="tabs">
