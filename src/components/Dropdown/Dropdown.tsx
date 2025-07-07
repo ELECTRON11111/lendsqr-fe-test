@@ -11,6 +11,7 @@ export default function Dropdown({ id, toggleDropdown } : DropdownProps) {
 
     return (
         <ul
+            data-testid="dropdown"
             onMouseEnter={() => {setActiveId(id)}}
             onMouseLeave={() => setActiveId('')}
             className={`${(id == activeId) ? 'show' : '' } dropdown`}
@@ -24,11 +25,11 @@ export default function Dropdown({ id, toggleDropdown } : DropdownProps) {
             </li>  
             </Link>  
             <li>
-                <img src={'/dropdown/blacklist.png'} alt='view icon'/>
+                <img src={'/dropdown/blacklist.png'} alt='blacklist icon'/>
                 <p>Blacklist User</p>
             </li>    
             <li>
-                <img src={'/dropdown/activate.png'} alt='view icon'/>
+                <img src={'/dropdown/activate.png'} alt='activate icon'/>
                 <p>Activate User</p>
             </li>    
         </ul>
