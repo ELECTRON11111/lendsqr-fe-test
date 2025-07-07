@@ -60,7 +60,7 @@ export default function Table({ users }: { users: User[] }) {
               const { id, orgName, userName, email, phoneNumber, createdAt, status } = user;
                 
               return (
-                <tr key={id} className="tr-body">
+                <tr key={id} data-testid="tr" className="tr-body">
                   <td>{orgName}</td>             
                   <td>{userName}</td>   
                   <td>{email}</td>   
