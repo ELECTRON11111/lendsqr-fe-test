@@ -151,9 +151,11 @@
     @media (min-width: 768px) and (max-width: 1024px) {
         .sidebar {
             transform: translateX(-100%);
+            display: none;
             transition: transform .5s ease;
             &.show {
                 transform: translateX(0);
+                display: block;
             }
         }
     }

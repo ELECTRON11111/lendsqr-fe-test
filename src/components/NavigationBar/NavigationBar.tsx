@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { usePathname } from 'next/navigation';
-import "@/styles/_navigationbar.scss";
+import "../../styles/_navigationbar.scss";
 
 export default function NavigationBar({ show }: { show: boolean }) {
    const router = useRouter();
@@ -14,7 +14,7 @@ export default function NavigationBar({ show }: { show: boolean }) {
     } 
 
    return (
-        <aside className={`${show ? 'show' : ''} sidebar`}>
+        <aside data-testid="nav-container" className={`${show ? 'show' : ''} sidebar`}>
             
             <div className="sidebar-logo-container">
                 <img src={'/login/lendsqr-logo.svg'} alt="lendsqr-logo"/>
@@ -153,7 +153,7 @@ export default function NavigationBar({ show }: { show: boolean }) {
                 </li>
 
                 <footer>
-                    <li onClick={handleLogOut}>
+                    <li data-testid="logout" onClick={handleLogOut}>
                         <img src={'/sidebar/sign-out.png'} alt='signout icon'/>
                         <p>Log Out</p>
                     </li>
