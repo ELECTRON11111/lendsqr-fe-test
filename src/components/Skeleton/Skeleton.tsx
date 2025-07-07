@@ -2,7 +2,7 @@ import React from 'react';
 import './Skeleton.css';
 
 interface SkeletonProps {
-  variant?: 'text' | 'circular' | 'rectangular';
+  variant?: 'rectangular';
   width?: string;
   height?: string;
   className?: string;
@@ -25,6 +25,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
 
   return (
     <div
+      data-testid="skeleton"
       className={classes}
       style={{
         width,
