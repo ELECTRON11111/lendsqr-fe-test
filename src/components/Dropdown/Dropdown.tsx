@@ -11,9 +11,10 @@ export default function Dropdown({ id, toggleDropdown } : DropdownProps) {
 
     return (
         <ul
-         onMouseEnter={() => {setActiveId(id)}}
-         onMouseLeave={() => setActiveId('')}
-         className={`${(id === activeId) ? 'show' : '' } dropdown`}>
+            onMouseEnter={() => {setActiveId(id)}}
+            onMouseLeave={() => setActiveId('')}
+            className={`${(id == activeId) ? 'show' : '' } dropdown`}
+        >
             <Link style={{
                 textDecoration: "none"
             }} href={`/dashboard/users/${id}`}> 
