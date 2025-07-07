@@ -11,55 +11,53 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
   const [usersToShow, setUsersToShow] = useState<User[]>([]);
 
   const searchParams = useSearchParams();
-  const filters = {
-    orgName: searchParams.get("orgName") || "",
-    userName: searchParams.get("userName") || "",
-    email: searchParams.get("email") || "",
-    phoneNumber: searchParams.get("phoneNumber") || "",
-    status: searchParams.get("status") || "all",
-    searchQuery: searchParams.get("search") || ""
-  };
+  const orgName = searchParams.get("orgName") || "";
+  const userName = searchParams.get("userName") || "";
+  const email = searchParams.get("email") || "";
+  const phoneNumber = searchParams.get("phoneNumber") || "";
+  const status = searchParams.get("status") || "all";
+  const searchQuery = searchParams.get("search") || "";
 
   const totalPages = Math.ceil(userList.length / usersPerPage);
 
   useLayoutEffect(() => {
     // Check if all filters are empty or default
     const allEmpty =
-      (!filters.orgName || filters.orgName === "all") &&
-      !filters.userName &&
-      !filters.email &&
-      !filters.phoneNumber &&
-      !filters.searchQuery &&
-      (!filters.status || filters.status === "all");
+      (!orgName || orgName === "all") &&
+      !userName &&
+      !email &&
+      !phoneNumber &&
+      !searchQuery &&
+      (!status || status === "all");
 
     let filteredUsers = userList;
 
     if (!allEmpty) {
       filteredUsers = userList.filter(user => {
-        const orgNameFilter = filters.orgName?.toLowerCase();
+        const orgNameFilter = orgName?.toLowerCase();
         const matchesOrgName =
           !orgNameFilter ||
           orgNameFilter === "all" ||
           user.orgName?.toLowerCase().includes(orgNameFilter);
 
-        const matchesUserName = filters.userName
-          ? user.userName?.toLowerCase().includes(filters.userName.toLowerCase())
+        const matchesUserName = userName
+          ? user.userName?.toLowerCase().includes(userName.toLowerCase())
           : true;
 
-        const matchesEmail = filters.email
-          ? user.email?.toLowerCase().includes(filters.email.toLowerCase())
-          : filters.searchQuery
-            ? user.email?.toLowerCase().includes(filters.searchQuery.toLowerCase())
+        const matchesEmail = email
+          ? user.email?.toLowerCase().includes(email.toLowerCase())
+          : searchQuery
+            ? user.email?.toLowerCase().includes(searchQuery.toLowerCase())
             : true;
 
-        const matchesPhoneNumber = filters.phoneNumber
-          ? user.phoneNumber?.toLowerCase().includes(filters.phoneNumber.toLowerCase())
+        const matchesPhoneNumber = phoneNumber
+          ? user.phoneNumber?.toLowerCase().includes(phoneNumber.toLowerCase())
           : true;
 
         const matchesStatus =
-          !filters.status || filters.status === "all"
+          !status || status === "all"
             ? true
-            : user.status?.toLowerCase() === filters.status.toLowerCase();
+            : user.status?.toLowerCase() === status.toLowerCase();
 
         return (
           matchesOrgName &&
@@ -76,7 +74,18 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
       currentPage * usersPerPage
     );
     setUsersToShow(currentUsers);
-  }, [userList, searchParams, currentPage, usersPerPage]);
+  // }, [userList, searchParams, currentPage, usersPerPage]);
+  }, [
+    userList,
+    orgName,
+    userName,
+    email,
+    phoneNumber,
+    status,
+    searchQuery,
+    currentPage,
+    usersPerPage
+  ]);
 
   const handleUsersPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setUsersPerPage(Number(event.target.value));
@@ -153,10 +162,10 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
           <Table users={usersToShow} />
         )}
 
-        <div id="pages_and_navigations">
+        <div id="pages_and_navigations" data-testid="pages">
           <div id='users_per_page'>
             <span>Showing</span>
-            <select name="users_count" id="users_count" value={usersPerPage} onChange={handleUsersPerPageChange}>
+            <select data-testid={"users_count"} name="users_count" id="users_count" value={usersPerPage} onChange={handleUsersPerPageChange}>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -173,7 +182,7 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
               </svg>
             </div>
 
-            <div id='pages'>
+            <div id='pages' data-testid="pages_listing">
               {renderPageNumbers().map((page, index) => (
                 <p
                   key={index}
