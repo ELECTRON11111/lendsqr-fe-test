@@ -2,7 +2,7 @@
 import "../styles/_login.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Spinner from "@/components/Spinner/Spinner";
+import Spinner from "../components/Spinner/Spinner";
 
 
 function isValidEmail(email: string): boolean {
@@ -52,6 +52,7 @@ const Page = () => {
 
                     <div className="form">
                         <input
+                            data-testid="email"
                             type="email"
                             placeholder="Email"
                             name="email"
@@ -62,6 +63,7 @@ const Page = () => {
                         
                         <div className="password-container">
                             <input
+                                data-testid="password"
                                 type={showPassword ? "text" : "password"}
                                 maxLength={25}
                                 placeholder="Password"
@@ -85,7 +87,7 @@ const Page = () => {
                                 : <span>LOG IN</span>
                             }
                         </button>
-                        {error && <p className="error">{error}</p>}
+                        {error && <p data-testid="error" className="error">{error}</p>}
                     </div>
                 </div>
             </div>
