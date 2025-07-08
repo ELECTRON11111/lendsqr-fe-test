@@ -14,7 +14,9 @@ const Page = () => {
     const isMobile = useIsScreenSmall();
     const activeUsersCount = useMemo(() => {
         let count = 0;
-        userList.forEach(user => user.status.toLowerCase() === "active" && count++)
+        if (!userList || Array.isArray(userList)) {
+            userList.forEach(user => user.status.toLowerCase() === "active" && count++);
+        }
         return count;
     }, [userList]);
     const cardData = [
@@ -95,7 +97,7 @@ const Page = () => {
                 <h2>Users</h2>
 
                 <div id="cards">
-                    {cardData.map((data, index):any => (
+                    {cardData.map((data, index) => (
                         <Card 
                             key={index} 
                             imgSrc={data.imgSrc} 

@@ -3,7 +3,6 @@ import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import Page from "../app/page";
 
-let push: ReturnType<typeof vi.fn>;
 
 vi.mock('next/navigation', () => ({
     useRouter: () => ({ 

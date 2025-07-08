@@ -69,12 +69,15 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
       });
     }
 
-    const currentUsers: User[] = filteredUsers.slice(
-      (currentPage - 1) * usersPerPage,
-      currentPage * usersPerPage
-    );
-    setUsersToShow(currentUsers);
-  // }, [userList, searchParams, currentPage, usersPerPage]);
+    if (Array.isArray(filteredUsers)) {
+      const currentUsers: User[] = filteredUsers.slice(
+        (currentPage - 1) * usersPerPage,
+        currentPage * usersPerPage
+      );
+      setUsersToShow(currentUsers);
+    } else {
+      setUsersToShow([]);
+    }
   }, [
     userList,
     orgName,

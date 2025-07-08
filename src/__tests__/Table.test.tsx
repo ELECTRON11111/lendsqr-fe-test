@@ -3,8 +3,6 @@ import { describe, it, expect, vi } from "vitest";
 import Table from "../components/Table/Table";
 import { User } from "../types/userTypes";
 
-let push: ReturnType<typeof vi.fn>
-
 vi.mock("next/navigation", () => ({
     useRouter: vi.fn(() => {
         push: vi.fn()
@@ -14,7 +12,7 @@ vi.mock("next/navigation", () => ({
 
 describe('Table', () => {
     beforeEach(() => {
-        push = vi.fn();
+        let push = vi.fn();
     });
 
     it('should not show table if user list is empty', () => {

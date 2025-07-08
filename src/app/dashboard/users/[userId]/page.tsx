@@ -5,9 +5,10 @@ import { useParams } from 'next/navigation';
 import { useIsScreenSmall } from '@/hooks/useIsScreenSmall';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import Header from '@/components/Header/Header';
+import { User } from '@/types/userTypes';
 
 export default function Page() {
-    const [ user, setUser ] = useState<{[key: string]: any}>();
+    const [ user, setUser ] = useState<User>();
     const [ active, setActive ] = useState<'General Settings' | "Documents" | 'Bank Details'  >("General Settings");
     const [showNavbar, setShowNavbar] = useState(true);
     
@@ -18,14 +19,16 @@ export default function Page() {
     const fetchUserDetails = (): void => {
       const usersFromLocalStorage = localStorage.getItem('users')
       if(usersFromLocalStorage) {
-        const users: {[key: string] : any}[] = JSON.parse(usersFromLocalStorage); //users is an array of objects
-        let user = users.find((u) => u.id == id? u: undefined);
+        const users: User[] = JSON.parse(usersFromLocalStorage); //users is an array of objects
+        let user = users.find((u) => String(u.id) === id);
 
         if(user){
           setUser(user);
+        } else {
+          setUser(undefined);
         }
       } else {
-        setUser(<h1>User not available</h1>)
+        setUser(undefined);
       }
     }
 
@@ -75,6 +78,7 @@ export default function Page() {
                             </div>
                         }
                     </div>
+                    { user === undefined && <h1>User not available</h1>}
                     { user && (
                     <>
                         <section className="user-details">

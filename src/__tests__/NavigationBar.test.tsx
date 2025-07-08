@@ -3,8 +3,6 @@ import { describe, expect, vi, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import NavigationBar from "../components/NavigationBar/NavigationBar";
 
-// push mock at module scope
-let push: ReturnType<typeof vi.fn>;
 
 vi.mock('next/navigation', () => ({
   useRouter: vi.fn(() => ({
@@ -19,7 +17,7 @@ describe('Navigation Bar', () => {
     const handleLogOut = vi.fn();
 
     beforeEach(() => {
-        push = vi.fn();
+        let push = vi.fn();
         handleLogOut.mockClear();
         window.sessionStorage.clear();
     });
