@@ -7,17 +7,52 @@ The Tech Stack is `Next Js (React)` + `Typescript` + `SCSS`.
 
 Project Structure is shown below:
 ```
-┌ src/
-|  |-  
-│  ├─ app/
-│  │  
-│  └─ components/
-│      
-├ public/
-│  └─ 
-├ package.json
-├ next.config.js
-└ ...
+lendsqr-fe-test/
+├── public/
+│   ├── dashboard-header/
+│   ├── dropdown/
+│   ├── fonts/
+│   ├── login/
+│   ├── sidebar/
+│   ├── table/
+│   ├── user-details/
+│   └── users-images/
+├── src/
+│   ├── __tests__/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   └── users/
+│   │   │       ├── [userId]/
+│   │   │       │   └── page.tsx
+│   │   │       └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── index.scss
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── Card/
+│   │   ├── Dropdown/
+│   │   ├── Filter/
+│   │   ├── Header/
+│   │   ├── NavigationBar/
+│   │   ├── PaginatedItems/
+│   │   ├── Skeleton/
+│   │   ├── Spinner/
+│   │   └── Table/
+│   ├── hooks/
+│   ├── styles/
+│   └── types/
+├── .eslintrc.mjs
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vitest.config.ts
+├── vitest.setup.ts
+└── README.md
 ```
 
 The live application URL is [Click Here To View App](PLACE_URL_HERE).
