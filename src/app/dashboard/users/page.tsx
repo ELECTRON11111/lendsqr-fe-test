@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import Image from 'next/image';
 import Card from '@/components/Card/Card';
 import Header from '@/components/Header/Header';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
@@ -37,6 +38,12 @@ const Page = () => {
             title: "USERS WITH SAVINGS",
         }
     ];
+    const loader = (
+        <div id='users-page-loader'>
+            <Image src={"/login/lendsqr-logo.svg"} width={174} height={36} alt='Lendsqr Logo' />
+            <h4>Loading users ....</h4>
+        </div>
+    );
 
     // Should be in env variable (Left that out because of its not a production app) - woul've been `${process.env.BASE_URL}`
     const baseUrl = `https://opemipoomoniyi.free.beeceptor.com`; 
@@ -90,7 +97,7 @@ const Page = () => {
     }
 
     return (
-        <Suspense fallback={<h1>Loading Users ....</h1>}>
+        <Suspense fallback={loader}>
             <Header handleClick={() => setShowNavbar(!showNavbar)} />
             <NavigationBar show={showNavbar} />
             <div id="users-page">

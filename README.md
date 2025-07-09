@@ -1,4 +1,4 @@
-## LENDSQR FE ASSESMENT
+## LENDSQR FE ASSESMENT (By Omoniyi Opemipo Daniel)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 The Tech Stack is `Next Js (React)` + `Typescript` + `SCSS`.
@@ -55,7 +55,7 @@ lendsqr-fe-test/
 └── README.md
 ```
 
-The live application URL is [Click Here To View App](PLACE_URL_HERE).
+The live application URL is [https://omoniyi-opemipo-lendsqr-fe-test.vercel.app/](https://omoniyi-opemipo-lendsqr-fe-test.vercel.app/).
 
 ## Getting Started (Setting App up locally) 
 

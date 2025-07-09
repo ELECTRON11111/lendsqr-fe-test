@@ -19,7 +19,7 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
   const searchQuery = searchParams.get("search") || "";
 
   const totalPages = Math.ceil(userList.length / usersPerPage);
-
+  
   useLayoutEffect(() => {
     // Check if all filters are empty or default
     const allEmpty =
@@ -149,7 +149,7 @@ const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: 
 
   return (
     // Suspense to avoid production build errors
-    <Suspense fallback={<h1>Loading Paginated Users ....</h1>}>
+    <Suspense fallback={<></>}>
       <div id='PaginatedItems'>
         {loading && userList.length === 0 ? (
           <div id='loader' style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
