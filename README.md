@@ -1,7 +1,7 @@
 ## LENDSQR FE ASSESMENT (By Omoniyi Opemipo Daniel)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-The Tech Stack is `Next Js (React)` + `Typescript` + `SCSS`.
+The Tech Stack is `Next Js (React)` + `Typescript` + `SCSS` + `Vitest` for unit testing.
 
 ## Live Application and Project Structure
 
