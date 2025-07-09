@@ -11,10 +11,6 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe('Table', () => {
-    beforeEach(() => {
-        let push = vi.fn();
-    });
-
     it('should not show table if user list is empty', () => {
        render(<Table users={[]} />);
 

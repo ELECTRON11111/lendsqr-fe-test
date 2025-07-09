@@ -17,7 +17,6 @@ describe('Navigation Bar', () => {
     const handleLogOut = vi.fn();
 
     beforeEach(() => {
-        let push = vi.fn();
         handleLogOut.mockClear();
         window.sessionStorage.clear();
     });

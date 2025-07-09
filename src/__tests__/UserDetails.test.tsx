@@ -65,6 +65,7 @@ describe("User Details Page", () => {
   };
 
   beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     nextNavigation.useParams.mockReturnValue({ userId: "1" });
     localStorage.setItem("users", JSON.stringify([user]));
@@ -86,6 +87,7 @@ describe("User Details Page", () => {
 
   it("shows 'User not available' when user is not found", () => {
     // Set a userId that does not exist
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     nextNavigation.useParams.mockReturnValue({ userId: "999" });
     localStorage.setItem("users", JSON.stringify([user]));

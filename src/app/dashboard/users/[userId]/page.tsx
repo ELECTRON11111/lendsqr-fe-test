@@ -20,7 +20,7 @@ export default function Page() {
       const usersFromLocalStorage = localStorage.getItem('users')
       if(usersFromLocalStorage) {
         const users: User[] = JSON.parse(usersFromLocalStorage); //users is an array of objects
-        let user = users.find((u) => String(u.id) === id);
+        const user = users.find((u) => String(u.id) === id);
 
         if(user){
           setUser(user);
@@ -92,7 +92,7 @@ export default function Page() {
                                     </div>
                                     <div>
                                         <div className="col-2">
-                                            <p>User's Tier</p>
+                                            <p>User&apos;s Tier</p>
                                             <div>
                                                 <img src={'/user-details/full-star.png'} alt='full star icon'/>
                                                 <img src={'/user-details/empty-star.png'} alt='full star icon'/>

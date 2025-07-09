@@ -133,6 +133,7 @@ describe("UsersPage", () => {
 
   describe("Positive Cases", () => {
     it("should render all four cards with correct titles", () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       global.fetch.mockResolvedValueOnce({
         json: async () => [mockUsers[0]]
