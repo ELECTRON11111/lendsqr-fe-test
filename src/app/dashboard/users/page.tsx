@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Card from '@/components/Card/Card';
 import Header from '@/components/Header/Header';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
@@ -90,7 +90,7 @@ const Page = () => {
     }
 
     return (
-        <>
+        <Suspense fallback={<h1>Loading Users ....</h1>}>
             <Header handleClick={() => setShowNavbar(!showNavbar)} />
             <NavigationBar show={showNavbar} />
             <div id="users-page">
@@ -111,7 +111,7 @@ const Page = () => {
                     <PaginatedItems userList={userList} loading={loading} />
                 </div>
             </div>
-        </>
+        </Suspense>
     );
 }
 
