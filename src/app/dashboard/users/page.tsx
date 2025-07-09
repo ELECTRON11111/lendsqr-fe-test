@@ -41,7 +41,7 @@ const Page = () => {
     const loader = (
         <div id='users-page-loader'>
             <Image src={"/login/lendsqr-logo.svg"} width={174} height={36} alt='Lendsqr Logo' />
-            <h4>Loading users ....</h4>
+            <p>Loading users ....</p>
         </div>
     );
 

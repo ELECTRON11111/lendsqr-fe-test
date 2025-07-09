@@ -13,15 +13,15 @@ const Page = () => {
 
     return (
         <>
-            <div id='Dashboard'>
+            <div id='users-page-loader'>
                 <Image 
                     src={"/login/lendsqr-logo.svg"}
                     alt='Lendsqr Logo'
                     width={245}
-                    height={245}
+                    height={46}
                 />
 
-                <h1>Redirecting to Users Page ...</h1>
+                <p>Redirecting to Users Page ...</p>
             </div>
         </>
     );

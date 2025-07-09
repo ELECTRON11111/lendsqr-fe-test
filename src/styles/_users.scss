@@ -36,12 +36,12 @@
         }
     }
 
-    #users-page-loader {
-        width: 100%;
+    &-loader {
+        width: 100vw;
         height: 100vh;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
