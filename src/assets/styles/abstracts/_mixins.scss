@@ -1,0 +1,41 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin easeTransition {
+    transition: all ease-out 3000;
+}
+
+@mixin loginInputs {
+    width: 100%;
+    display: flex;
+    padding: 0.8rem 0;
+    padding-left: 0.6rem;
+    color: #545F7D;
+    font-weight: lighter;
+    font-family: 'Avenir Next', sans-serif;
+    border: 2px solid #545F7D26;
+    border-radius: 5px;
+    max-width: 98%;
+}
+
+@mixin Card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+}
+
+@mixin media-md {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}

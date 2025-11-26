@@ -1,0 +1,220 @@
+// @use "../../src/app/index.scss";
+@use "../../../assets/styles/abstracts/mixins" as mixins;
+
+#login {
+    @include mixins.flexCenter();
+    justify-content: flex-start;
+    display: flex;
+    width: 100%;
+    scale: .92;
+    height: 95vh;
+    font-family: "Avenir Next", sans-serif;
+
+    .error {
+        color: red;
+    }
+
+    .left {
+        display: flex;
+        border-right: 2px solid rgba(84, 95, 125, 0.05);
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 50%;
+        justify-content: space-around;
+        align-self: flex-start;
+        background: opacity($color: gray) 5%;
+
+        #logo {
+            align-self: flex-start;
+            padding-left: 4.5rem;
+            width: 173.76px;
+            height: 36px;
+        }
+
+        #vectorImg {
+            width: 600px;
+            height: 337.57px;
+            position: relative;
+            bottom: 20px;
+            left: 1.5rem;
+        }
+    }
+
+
+    .right {
+        @include mixins.flexCenter();
+        flex-direction: column;
+        width: 50%;
+        max-width: 50%;
+        // margin: 0 3rem;   
+
+        .right-content {
+            width: 70%;
+        }
+
+        .text {
+            padding: 2rem 0;
+            font-family: "Mulish", serif !important;
+
+            h1 {        
+                font-size: 44px;
+                font-weight: 800;
+                margin: 12px 0;
+                line-height: 54.64px;
+                letter-spacing: -0.04em;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #213F7D;                
+            }
+            
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+                font-weight: 400;
+                line-height: 1.9rem;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #545F7D;
+            }
+        }
+
+
+        .form {
+            .password-container {
+                position: relative;
+
+                .show {
+                    cursor: pointer;
+                    position: absolute;
+                    text-transform: uppercase;
+                    top: 15px;
+                    right: 15px;
+
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 16.39px;
+                    letter-spacing: 0.1em;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #39CDCC;
+                }
+            }
+            
+            input {
+                @include mixins.loginInputs();
+                margin: 1.2rem 0;
+
+                &:focus {
+                    outline: solid #39CDCC;
+                }
+            }
+
+            h5 {
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 16.39px;
+                letter-spacing: 0.1em;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #39CDCC;
+            }
+            
+            button {
+                width: 100%;
+                padding: 0.8rem 1.4rem;
+                border: #39CDCC;
+                border-radius: 7px;
+                background: #39CDCC;
+                color: white;
+                cursor: pointer;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-family: Avenir Next;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 19.12px;
+                    letter-spacing: 0.1em;
+                    text-align: center;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                }
+
+                #loader {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 6px;
+                    font: 600;
+                }
+
+                &:disabled {
+                    opacity: 50%;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+
+    // Media Queries
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        padding-bottom: 5rem;
+        height: fit-content;
+
+        .left {
+            width: 100%;
+            max-width: 100%;
+            flex-direction: column-reverse;
+            border: 0;
+
+            #logo {
+                align-self: center !important;
+                padding-left: 5px;
+            }
+        }
+
+        .right {
+            width: 100%;
+            max-width: 100%;
+
+            h1 {
+                @include mixins.flexCenter();
+            }
+
+            p {
+                @include mixins.flexCenter();
+            }
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        .left {
+            #vectorImg {
+                width: 300px;
+                height: 168.79px;
+                padding-top: 10px;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 450px) {
+        .left {
+            #vectorImg {
+                width: 260px;
+                height: 168.79px;
+            }
+        }
+
+        .right {
+            .right-content {
+                width: 90%;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+:root {
+    --animate-spin: spin 1s linear infinite;
+}
+
+#spinner-container {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+#spinner {
+    display: inline;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: #e5e7eb;
+    fill: white;
+    animation: var(--animate-spin); /* spin 1s linear infinite */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
