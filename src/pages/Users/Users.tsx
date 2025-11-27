@@ -44,8 +44,8 @@ const Users = () => {
         </div>
     );
 
-    // Should be in env variable (Left that out because of its not a production app) - woul've been `${process.env.BASE_URL}`
-    const baseUrl = `https://opemipoomoniyi.free.beeceptor.com`; 
+    // Should be in env variable (Left that out because of its not a production app)
+    const baseUrl = `https://omoniyiopemipo.free.beeceptor.com`; 
     const apiConfig = {
         method: 'GET',
         headers: {

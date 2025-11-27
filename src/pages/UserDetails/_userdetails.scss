@@ -1,0 +1,499 @@
+@use "../../assets/styles/abstracts/config" as variables;
+@use "../../assets/styles/abstracts/mixins" as mixins;
+
+@mixin title {
+    text-transform: uppercase;
+    font-size:12px;
+    color: variables.$text-title; 
+    text: #545F7D;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+@mixin table-container {
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+    padding-bottom: 30px;
+}
+
+@mixin table($column, $row) {
+    margin-top: 30px;
+    display: grid;
+    grid-row-gap: 40px;
+    grid-template-columns: repeat($column, auto);
+    grid-template-rows: repeat($row, auto);
+}
+
+.nav-back-container {
+     display: flex;
+     img {
+        object-fit: contain;
+        display: block;
+     }
+     p {
+        margin-left: 5px;
+        color: #545F7D;
+        font-family: "Work Sans", sans-serif;
+     }
+}
+
+#user-details-page {
+    padding: 100px 30px 100px 320px;
+    background: #fafafa;
+
+    @media screen and (max-width: 1024px) {
+        padding: 100px 20px;
+    }
+}
+
+.user-details-container {
+     #user-avatar-container {
+        // the avatar img container
+        padding: 15px;
+        background: #dbe0ea;
+        border-radius: 100%;
+
+        img {
+            width: 65px;
+            height: 60px;
+        }
+     }
+
+     .title-container {
+         margin-bottom: 30px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+
+         h1 {
+            color: #213F7D;
+            font-family: "Work Sans";
+            font-weight: 500;
+         }
+
+         button {
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: "Work Sans", sans-serif;
+
+            
+            &:first-child {
+                border: 1px solid variables.$btn-danger;
+                color: variables.$btn-danger;
+                cursor: pointer;
+                opacity: 1;
+                transition: opacity .5s ease-in-out;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+            
+            &:last-child {
+                margin-left: 10px;
+                border: 1px solid variables.$btn-primary;
+                opacity: 1;
+                transition: opacity .5s ease-in-out;
+                color: variables.$btn-primary;
+                cursor:pointer;
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+         }
+     }
+     .user-details {
+        @include mixins.Card;
+        padding-bottom: 0;
+
+            & > div {
+             display: flex;
+             align-items: center;
+            & > div {
+                display: flex;
+            }
+             p:first-child {
+                padding-bottom: 10px;
+             }
+
+             .avatar-container {
+                display: flex;
+                align-items: center;
+
+                img {
+                    border-radius: 50%;
+                    object-fit: cover;
+                    width: 100px;
+                    height: 100px;
+                }
+                .user-name {
+                    padding: 20px;
+                    p:first-child {
+                        font-size: 22px;
+                        font-weight: 500;
+                        font-family: "Work Sans", sans-serif;
+                        color: #213F7D;
+                        margin: 0;
+                    } 
+                    p:last-child {
+                        font-size: 14px;
+                        color: #545F7D;
+                        margin: 0;
+                    }
+                }
+             }
+             .col-2, .col-3 {
+                padding: 20px;
+                border-left: 1px solid rgba(33, 63, 125, 0.1);
+                color: #213F7D;
+                font-family: "Work Sans", sans-serif;
+             }
+             .col-2 {
+                p:first-child {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+             }
+             .col-3 {
+                 p:first-child {
+                    font-weight: 500;
+                    font-size: 22px;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                p:last-child {
+                    font-size: 12px;
+                    color: #545F7D;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+             }
+         }
+     }
+
+     footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 50px;
+
+        p {
+            padding-bottom: 8px;
+            padding-inline: 5px;
+            color: black;
+            cursor: pointer;
+            &.active {
+                color: variables.$text-primary;
+            }
+            &.active {
+                color: variables.$text-primary;
+                border-bottom: 2px solid variables.$text-primary; 
+            }
+        }
+     }
+}
+
+ .user-info {
+    @include mixins.Card;
+    margin-top: 50px;
+     h3 {
+        font-size: 16px;
+        color: #213F7D;
+        font-family: "Work Sans", sans-serif;
+     }
+
+     .personal-info {
+        @include table-container;
+
+        .personal-info-table {
+            @include table(5, 2);    
+            div {
+                p:first-child {
+                    @include title
+                }
+
+                p:last-child {
+                    color: #545F7D;
+                    font-weight: 500;
+                    font-size: 16px
+                }
+             }
+         }
+     }
+     
+     .education {
+        @include table-container;
+        padding-top: 20px;
+
+        .education-table {
+           @include table(4, 2);
+
+            div {
+                p:first-child {
+                    @include title
+                }
+
+                p:last-child {
+                    color: #545F7D;
+                    font-weight: 500;
+                    font-size: 16px
+                }
+             }
+        }
+     } 
+
+     .socials {
+        @include table-container;
+        padding-top: 20px;
+
+        .socials-table {
+           @include table(5, 1);
+
+            div {
+                p:first-child {
+                    @include title
+                }
+
+                p:last-child {
+                    color: #545F7D;
+                    font-weight: 500;
+                    font-size: 16px
+                }
+             }
+        } 
+
+     }
+     
+     .guarantor {
+        @include table-container;
+        padding-top: 20px;
+
+        .guarantor-table {
+           @include table(5, 1);
+
+            div {
+                p:first-child {
+                    @include title
+
+                }
+
+                p:last-child {
+                    color: #545F7D;
+                    font-weight: 500;
+                    font-size: 16px
+                }
+             }
+        } 
+
+        &.footer-item {
+            border-bottom: none;
+        }
+     }
+
+}
+
+@media screen and (max-width: 400px) {
+    .user-name {
+        p:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        p:last-child {
+            text-align: left;
+            font-size: 10px !important;
+        }
+    }
+
+    .col-2 {
+        display: none;
+    }
+}
+
+@include mixins.media-md {
+    #user-avatar-container {
+        max-width: fit-content;
+    }
+
+    .user-details-container {
+
+        .title-container {
+            flex-wrap: wrap;
+            h1 {
+                font-size: 24px;
+            }
+
+            .button-container {
+               width: 100%;
+               margin-top: 20px;
+               display: flex;
+               justify-content: space-between;
+                button {
+                    padding: 8px 5px;
+                    width: 48%;
+                }
+            }
+        }
+
+        .user-details {
+
+            & > div {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto auto;
+
+                & > div {
+                  margin-top: 10px;
+                 
+                  & > div {            
+                    width: 50%;
+                  }
+                }
+            }
+            footer {
+                display: flex;
+                gap: 15px;
+                justify-content: space-between;
+                padding-top: 50px;
+                overflow-x: scroll;
+                padding-bottom: 5px;
+        
+                p {
+                    padding-bottom: 4px;
+                    padding-inline: 0px;
+                    color: black;
+                    cursor: pointer;
+                    flex-shrink: 0;
+    
+                    &.active {
+                        color: variables.$text-primary;
+                    }
+                }
+             }
+        }  
+
+
+        .user-info {
+
+            .personal-info {  
+                overflow-x: scroll;
+                
+                .personal-info-table {
+                    div {
+                        width: 100%;
+                    }
+
+                     display: flex;
+                     flex-wrap: wrap;
+                 }
+             }
+
+             .education {     
+                .education-table {
+                    div {
+                        width: 100%;
+                    }
+                    display: flex;
+                    flex-wrap: wrap;
+                }    
+             }
+             .socials {
+                .socials-table {
+                    div {
+                        width: 100%;
+                    }
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+             }
+             .guarantor {
+                border-bottom: none;
+                div {
+                    width: 100%;
+                }
+
+                .guarantor-table {
+                 display: flex;
+                    flex-wrap: wrap;
+                    gap: 30px; 
+                } 
+        }
+    }
+}
+}
+
+@include mixins.media-lg {
+
+    .user-details-container {
+
+        .title-container {
+            flex-wrap: wrap;
+            h1 {
+                font-size: 24px;
+            }
+
+            .button-container {
+               width: 100%;
+               margin-top: 20px;
+               display: flex;
+               justify-content: space-between;
+                button {
+                    padding: 8px 5px;
+                    width: 48%;
+                }
+            }
+        }
+
+        .user-details {
+            & > div {
+                display: flex;
+
+                & > div {
+                  margin-top: 10px;
+                }
+            }
+            footer {
+                display: flex;
+                gap: 15px;
+                justify-content: space-between;
+                padding-top: 50px;
+                overflow-x: scroll;
+                padding-bottom: 5px;
+        
+                p {
+                    padding-bottom: 4px;
+                    padding-inline: 0px;
+                    color: black;
+                    cursor: pointer;
+                    flex-shrink: 0;
+    
+                    &.active {
+                        color: variables.$text-primary;
+                    }
+                }
+             }
+        }  
+
+
+        .user-info {
+            .personal-info {      
+                .personal-info-table {
+                    @include table(2, 4);    
+                 }
+             }
+             .education {     
+                .education-table {
+                   @include table(2, 4);
+        
+                }
+             } 
+             .guarantor {
+                .guarantor-table {
+                   @include table(2, 2);
+                } 
+        }
+    }
+}
+}

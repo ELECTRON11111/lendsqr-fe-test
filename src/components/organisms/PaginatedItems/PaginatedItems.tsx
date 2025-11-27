@@ -1,4 +1,3 @@
-"use client";
 import { useState, useLayoutEffect, Suspense } from 'react';
 import Skeleton from '../../atoms/Skeleton/Skeleton';
 import Table from '../../molecules/Table/Table';
