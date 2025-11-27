@@ -79,7 +79,7 @@ describe("User Details Page", () => {
     expect(screen.getAllByText(user.phoneNumber)[0]).toBeInTheDocument();
     expect(screen.queryByText("User not available")).not.toBeInTheDocument();
   });
-  it("shows 'User not available' when there are no users in localStorage", () => {
+  it("shows 'User not available' when there are no users in localStorage backup", () => {
     localStorage.removeItem("users");
     render(<UserDetails />);
     expect(screen.getByText("User not available")).toBeInTheDocument();
