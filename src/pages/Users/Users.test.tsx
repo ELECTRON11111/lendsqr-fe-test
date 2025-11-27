@@ -8,10 +8,17 @@ vi.mock("../hooks/useIsScreenSmall", () => ({
 }));
 
 vi.mock("react-router-dom", () => ({
-  useSearchParams: () => new URLSearchParams(),
-  useRouter: vi.fn(() => {
-    push: vi.fn()
+  useNavigate: vi.fn(),
+  useLocation: () => ({
+    pathname: "/dashboard/users"
   }),
+  useSearchParams: vi.fn(() => [
+    {
+        get: vi.fn()
+    },
+    vi.fn()
+  ]),
+  Link: () => <a />,
   usePathname: vi.fn(() => ({
     includes: vi.fn()
   }))
@@ -246,7 +253,7 @@ describe("UsersUsers", () => {
       render(<Users />);
       
       await waitFor(() => {
-        expect(screen.getByTestId("Userss")).toBeInTheDocument();
+        expect(screen.getByTestId("pages")).toBeInTheDocument();
       });
     });
   });
