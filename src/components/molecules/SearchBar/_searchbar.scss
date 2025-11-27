@@ -1,0 +1,51 @@
+@use "../../../assets//styles/abstracts/config" as config;
+@use "../../../assets//styles/abstracts/mixins" as mixins;
+
+.search {
+    align-self: center;
+    display: flex;
+    padding: 0rem 6rem;
+    max-height: 40px;
+    flex-wrap: nowrap;
+    
+    input {
+        @include mixins.easeTransition;
+        max-height: 40px;
+        color: config.$text-title;
+        font-family: "Work Sans", sans-serif;
+        padding: 0.5rem 1rem;
+        padding-top: 0.65rem;
+        border: 1px solid config.$text-title;    
+        border-radius: 8px 0px 0px 8px;
+        border: 1px 0px 0px 0px;
+        opacity: 0.2px;
+
+        &:focus {
+            outline: solid config.$btn-primary;
+        }
+    }
+        
+    span {
+        padding: 0.5rem 1rem;
+        border: 1px solid config.$btn-primary;
+        background: config.$btn-primary;
+        border-radius: 0px 8px 8px 0px;
+        max-height: 40px;
+        cursor: pointer;
+
+        img {
+            width: 13.97px;
+            height: 14px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 0.5rem;
+        display: flex;
+        scale: 0.7;
+    }
+
+    @media screen and (max-width: 460px) {
+        display: none;
+    }
+}

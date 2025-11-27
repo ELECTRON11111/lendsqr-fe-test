@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
-import Login from "./components/templates/Login/Login";
-import Users from "./components/templates/Users/Users";
-import UserDetails from "./components/templates/UserDetails/UserDetails";
+import Login from "./pages/Login/Login";
+import Users from "./pages/Users/Users";
+import UserDetails from "./pages/UserDetails/UserDetails";
 
 const App = () => {
     return (

@@ -1,10 +1,10 @@
 import "./_login.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../../atoms/Spinner/Spinner";
+import Spinner from "../../components/atoms/Spinner/Spinner";
 
-import logo from "../../../assets/images/login/lendsqr-logo.svg";
-import vectorImg from "../../../assets/images/login/login-svg.svg";
+import logo from "../../assets/images/login/lendsqr-logo.svg";
+import vectorImg from "../../assets/images/login/login-svg.svg";
 
 function isValidEmail(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

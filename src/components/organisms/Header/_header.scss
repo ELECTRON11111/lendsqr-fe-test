@@ -1,0 +1,120 @@
+@use "../../../assets//styles/abstracts/config" as config;
+@use "../../../assets//styles/abstracts/mixins" as mixins;
+
+#header {
+    display: flex;
+    background: white;
+    z-index: 1000;
+    max-width: 100vw;
+    padding: 1rem 2rem 1rem 1rem;
+    font-family: "Work Sans", sans-serif;
+    box-shadow: 0px 5px 20px 0px #0000000A;
+    position: fixed;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    padding-right: 2rem;
+
+    #burger-icon {
+        display: none;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .tabs {
+        padding-right: 2.5rem;
+        // margin-left: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 16px;
+        margin: 0 1rem;
+        margin-left: auto;
+
+        a {
+            padding-right: 1.5rem;
+            font-family: "Roboto", serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 18.75px;
+            text-align: left;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: config.$text-secondary;
+        }
+
+        #profile {
+            border-radius: 100%;
+        }
+
+
+        #notifications {
+            cursor: pointer;
+            width: 19.67px;
+            height: 22.74px;
+            color: config.$text-secondary;
+        }
+
+        #user {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            svg {
+                padding-top: 2px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        #burger-icon {
+            display: block;
+            cursor: pointer;
+            max-width: 2rem;
+            min-height: 2rem;
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        #logo {
+            display: none;
+        }
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .tabs {
+            #user {
+                span, svg {
+                    display: none;
+                }
+            }
+
+            a {
+                padding-right: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 1rem;
+        width: 100%;
+        max-width: 90vw;
+
+        .tabs {
+            margin: 0;
+            margin-left: auto;
+            padding-right: 1.5rem;
+
+            #user {
+                scale: 0.7;
+            }
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        max-width: 86vw;
+    }
+}

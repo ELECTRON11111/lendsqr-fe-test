@@ -1,5 +1,4 @@
-// @use "../../src/app/index.scss";
-@use "../../../assets/styles/abstracts/mixins" as mixins;
+@use "../../assets/styles/abstracts/mixins" as mixins;
 
 #login {
     @include mixins.flexCenter();
