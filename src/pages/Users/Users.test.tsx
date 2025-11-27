@@ -172,7 +172,7 @@ describe("UsersUsers", () => {
 
       await waitFor(() => {
         expect(mockFetch).toHaveBeenCalledWith(
-          "https://opemipoomoniyi.free.beeceptor.com/users",
+          "https://omoniyiopemipo.free.beeceptor.com/users",
           expect.objectContaining({
             method: "GET",
             headers: {
