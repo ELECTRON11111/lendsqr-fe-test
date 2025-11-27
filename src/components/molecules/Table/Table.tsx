@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { type User } from "../../../types/userTypes";
 import { useNavigate } from "react-router-dom";
+import Filter from "../Filter/Filter";
+import Dropdown from "../../atoms/Dropdown/Dropdown";
 
 import filterIcon from "../../../assets/images/table/filter.png";
 import ellipsisIcon from "../../../assets/images/table/ellipsis.png";
 
 export default function Table({ users }: { users: User[] }) {
     const navigate = useNavigate();
+    const [activeId, setActiveId ] = useState<string | number>('');
+    const [showFilter, updateShowFilter] = useState<boolean>(false);
     
     return (
       <section className="table-container">
@@ -13,40 +18,41 @@ export default function Table({ users }: { users: User[] }) {
         <table>
           <thead>
             <tr>
-              <th style={{position: "relative"}}>
+                <th style={{position: "relative"}}>
+                  <Filter show={showFilter} closeFilter={() => updateShowFilter(false)} />  
                   <div>
                     <p>Organization</p>
-                    <img src={filterIcon} alt='filter icon'/> 
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/> 
                   </div>
                 </th>
                 <th>
                   <div>
                     <p>Username</p> 
-                    <img src={filterIcon} alt='filter icon'/>
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>
                   </div>    
                 </th>
                 <th>
                   <div>
                     <p>Email</p> 
-                    <img src={filterIcon} alt='filter icon'/>      
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>      
                   </div>
                 </th>
                 <th>
                   <div>
                     <p>Phone Number</p> 
-                    <img src={filterIcon} alt='filter icon'/>    
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>    
                   </div>
                 </th>
                 <th>
                   <div>
                     <p>Date Joined</p> 
-                    <img src={filterIcon} alt='filter icon'/>    
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/>    
                   </div>
                 </th>
                 <th>
                   <div>
                     <p>Status</p>    
-                    <img src={filterIcon} alt='filter icon'/> 
+                    <img src={filterIcon} alt='filter icon' onClick={() => updateShowFilter((prev) => !prev)}/> 
                   </div>
                 </th>
             </tr>
@@ -65,8 +71,11 @@ export default function Table({ users }: { users: User[] }) {
                   <td>
                     <div>
                       <p className={`status ${status.toString().toLocaleLowerCase()}`}>{status}</p>
-                      <img src={ellipsisIcon} alt="ellipsis icon"
+                      <img 
+                        src={ellipsisIcon} alt="ellipsis icon"
+                        onMouseEnter={() => {setActiveId(id)}} 
                       />
+                      <Dropdown id={`${id}`} toggleDropdown={{activeId, setActiveId}}/>
                     </div>
                   </td>   
                 </tr>

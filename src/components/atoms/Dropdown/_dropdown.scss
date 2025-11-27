@@ -1,0 +1,42 @@
+
+.dropdown {
+    font-family: "Work Sans", sans-serif;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    background-color: white;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04), 0px 10px 30px rgba(0, 0, 0, 0.1);  
+    padding: 10px;
+    z-index: 101;
+    display: none;
+    border-radius: 10px;
+    
+    &.show {
+        display: block;
+    }
+    
+    li {
+        color: #545F7D;
+        display: flex;
+        cursor: pointer !important;
+        padding: 2px 10px;
+        
+        &:hover {
+            background-color: hsla(180, 60%, 94%, 1);
+        }
+        
+        img {
+            object-fit: contain;
+            margin-right: 5px;
+        }
+    }
+
+    p {
+    white-space: nowrap;
+
+    &:hover {
+        background-color: hsla(180, 60%, 94%, 1);
+    }
+   }
+    
+}
