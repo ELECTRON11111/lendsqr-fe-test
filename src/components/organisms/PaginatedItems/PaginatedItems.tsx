@@ -5,7 +5,7 @@ import Table from '../../molecules/Table/Table';
 import { type User } from '../../../types/userTypes';
 import { useSearchParams } from 'react-router-dom';
 
-const PaginatedItems = ( { loading, userList,  }: { loading: boolean, userList: User[] } ) => {
+const PaginatedItems = ( { loading, userList  }: { loading: boolean, userList: User[] } ) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(20);
   const [usersToShow, setUsersToShow] = useState<User[]>([]);
