@@ -1,17 +1,15 @@
 import "./_users.scss";
 import { useState, useEffect, useMemo, Suspense } from "react";
-import { useIsScreenSmall } from "../../hooks/useIsScreenSmall";
 import Dashboard from "../../components/templates/Dashboard/Dashboard";
 import Card from "../../components/atoms/Card/Card";
+import PaginatedItems from "../../components/organisms/PaginatedItems/PaginatedItems";
 import { type User } from "../../types/userTypes";
 
 import logo from "../../assets/images/login/lendsqr-logo.svg";
 
 const Users = () => {
-    const [showNavbar, setShowNavbar] = useState(true);
     const [userList, updateUserList] = useState<User[]>([]);
     const [loading, updateLoading] = useState(true);
-    const isMobile = useIsScreenSmall();
     const activeUsersCount = useMemo(() => {
         let count = 0;
         if (!userList || Array.isArray(userList)) {
@@ -77,10 +75,6 @@ const Users = () => {
             .finally(() => updateLoading(false));
     }, []);
 
-    useEffect(() => {
-        setShowNavbar(isMobile);
-    }, [isMobile]);
-
     const getCardNumber = (title: string) => {
         switch(title) {
             case "USERS":
@@ -98,7 +92,7 @@ const Users = () => {
 
     return (
         <Suspense fallback={loader}>
-            <Dashboard showNavbar={showNavbar}>
+            <Dashboard>
                 <div id="users-page">
                     <h2>Users</h2>
 
@@ -114,7 +108,7 @@ const Users = () => {
                     </div>
 
                     <div id="user-listing">
-                        {/* <PaginatedItems userList={userList} loading={loading} /> */}
+                        <PaginatedItems userList={userList} loading={loading} />
                     </div>
                 </div>
             </Dashboard>

@@ -2,7 +2,7 @@ import Dashboard from "../../components/templates/Dashboard/Dashboard";
 
 const UserDetails = () => {
     return (
-        <Dashboard showNavbar={true}>
+        <Dashboard>
             USER DETAILS PAGE CONTENT
         </Dashboard>
     );

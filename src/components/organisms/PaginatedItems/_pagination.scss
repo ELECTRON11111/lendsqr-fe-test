@@ -1,0 +1,215 @@
+
+@use "../../../assets/styles/abstracts/mixins" as mixins;
+@use "../../../assets/styles/abstracts/config" as variables;
+
+.table-container {  
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    min-height: 40vh;
+}
+
+table {
+    width: 100%;
+    color: #545f7d;
+    border-collapse: collapse;
+
+    th {
+       text-align: left;
+       padding: 10px 0;
+       white-space: nowrap;
+       div {
+           display: flex;
+           margin-right: 10px;
+           position: relative;
+       }
+       img {
+           margin-left: 10px;
+           object-fit: contain;
+           display: block;
+           cursor: pointer;
+       }
+    }
+    tbody {
+
+       tr {
+           border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+           &:last-child {
+               border-bottom: none;
+           }
+
+           td { 
+              padding: 5px 0;
+              padding-right: 5px;
+              font-size: 14px;
+
+              div {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  position: relative;
+                
+                  & > p {
+                   background-color: rgba(33, 63, 125, 0.1);
+                   padding: 8px;
+                   border-radius: 15px;
+                   margin-right: 10px;
+                  }
+
+                  & > .active {
+                    color: #39CD62;
+                    background: #f3fcf6;
+                  }
+
+                  & > .pending {
+                    color: #E9B200;
+                    background: #fdf7e5;
+                  }
+
+                  & > .blacklisted {
+                    color: #E4033B;
+                    background-color: #fce6eb;
+                  }
+
+                  img {
+                    cursor:pointer;
+                    display: block;
+                  }
+              }
+           }
+       }
+    }
+
+}
+
+#empty-users-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    p {
+        text-align: center;
+    }
+
+    & h1 {
+        color: variables.$text-primary;
+    }
+
+    .filter-btn {
+        font-family: "Work Sans", sans-serif;
+        background: #39CDCC;
+        color: white;
+        cursor: pointer;
+        margin: 10px 0;
+        padding: 14px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        border: 1px solid #39CDCC;
+
+        &:hover {
+            background: #2F9CA2;
+        }
+    }
+}
+
+#pages_and_navigations {
+    padding: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #users_per_page {
+        font: "Work Sans";
+        color: #545F7D;
+        font-weight: 400;
+        display: flex;
+        gap: 0.5rem;
+
+        select {
+            border: 1px solid #e5e8ee;
+            border-radius: 4px;
+            background-color: #e5e8ee;
+            height: fit-content;
+            padding: 4px 6px;
+            cursor: pointer;
+
+            option {
+                font: #213F7D;
+            }
+        }
+    } 
+
+    #navigations {
+        display: flex;
+        gap: 1.2rem;
+        font-family: "Work Sans", sans-serif;
+        color: #545F7D;
+        font-weight: 400;
+        
+        #pages {
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+
+            p {
+                cursor: pointer;
+            }
+
+            #active {
+                font-weight: 600;
+            }
+        }
+
+        .next, .prev {
+            padding: 5px;
+            background: #e5e8ee;
+            align-self: center;
+            padding-top: 3px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    .table-container {
+        overflow-x: auto;
+
+        thead tr th div {
+            margin-right: 15px;
+        }
+
+        tbody td {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .analytics-container {
+        grid-template-columns: repeat(2 , 48%);
+        grid-template-rows: auto auto;
+        grid-row-gap: 20px;
+    }
+
+    .table-container {
+        overflow-y: scroll;
+        table {
+            width: 300%;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #pages_and_navigations {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

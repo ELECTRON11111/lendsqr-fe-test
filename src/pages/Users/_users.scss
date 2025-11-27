@@ -1,7 +1,7 @@
 #users-page {
     font-family: "Work Sans", sans-serif;
     position: relative !important;
-    z-index: -1;
+    // z-index: -1;
     top: 0;
     left: 0;
     background: #fafafa;
@@ -11,7 +11,7 @@
         width: 100%;
         margin: 20px 0;
         display: flex;
-        
+
         p {
             color: #545F7D;
             font-family: "Work Sans";
