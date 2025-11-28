@@ -105,7 +105,7 @@ lendsqr-fe-assessment/
 
 ```
 
-The live application URL is [https://opemipo-omoniyi-lendsqr-fe-test.netlify.app/](https://opemipo-omoniyi-lendsqr-fe-test.netlify.app/).
+The live application URL is [https://opemipo-omoniyi-lendsqr-fe-test.vercel.app/](https://opemipo-omoniyi-lendsqr-fe-test.vercel.app/).
 
 ## Getting Started (Setting App up locally) 
 
