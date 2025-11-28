@@ -7,7 +7,101 @@ The Tech Stack is `React (Vite)` + `Typescript` + `SCSS` + `Vitest` for unit tes
 
 Project Structure is shown below:
 ```
-
+lendsqr-fe-assessment/
+├── public/
+│   ├── favicon.ico
+│   ├── images/
+│   │   └── users/
+│   └── vite.svg
+├── README.md
+├── src/
+│   ├── App.tsx
+│   ├── assets/
+│   │   ├── fonts/
+│   │   │   └── avenir-next/
+│   │   ├── images/
+│   │   │   ├── dashboard-header/
+│   │   │   ├── dropdown/
+│   │   │   ├── login/
+│   │   │   ├── sidebar/
+│   │   │   ├── table/
+│   │   │   └── user-details/
+│   │   └── react.svg
+│   ├── components/
+│   │   ├── atoms/
+│   │   │   ├── Card/
+│   │   │   │   ├── Card.test.tsx
+│   │   │   │   ├── Card.tsx
+│   │   │   │   └── _card.scss
+│   │   │   ├── Dropdown/
+│   │   │   │   ├── Dropdown.tsx
+│   │   │   │   └── _dropdown.scss
+│   │   │   ├── Skeleton/
+│   │   │   │   ├── Skeleton.tsx
+│   │   │   │   └── _skeleton.scss
+│   │   │   └── Spinner/
+│   │   │       ├── Spinner.tsx
+│   │   │       └── _spinner.scss
+│   │   ├── molecules/
+│   │   │   ├── Filter/
+│   │   │   │   ├── Filter.test.tsx
+│   │   │   │   ├── Filter.tsx
+│   │   │   │   └── _filter.scss
+│   │   │   ├── SearchBar/
+│   │   │   │   ├── SearchBar.tsx
+│   │   │   │   └── _searchbar.scss
+│   │   │   └── Table/
+│   │   │       └── Table.tsx
+│   │   ├── organisms/
+│   │   │   ├── Header/
+│   │   │   │   ├── Header.test.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   └── _header.scss
+│   │   │   ├── NavigationBar/
+│   │   │   │   ├── NavigationBar.test.tsx
+│   │   │   │   ├── NavigationBar.tsx
+│   │   │   │   └── _navigationbar.scss
+│   │   │   └── PaginatedItems/
+│   │   │       ├── PaginatedItems.test.tsx
+│   │   │       ├── PaginatedItems.tsx
+│   │   │       └── _pagination.scss
+│   │   └── templates/
+│   │       └── Dashboard/
+│   │           └── Dashboard.tsx
+│   ├── hooks/
+│   │   └── useIsScreenSmall.tsx
+│   ├── index.scss
+│   ├── main.tsx
+│   ├── pages/
+│   │   ├── Login/
+│   │   │   ├── login.test.tsx
+│   │   │   ├── Login.tsx
+│   │   │   └── _login.scss
+│   │   ├── UserDetails/
+│   │   │   ├── UserDetails.test.tsx
+│   │   │   ├── UserDetails.tsx
+│   │   │   └── _userdetails.scss
+│   │   └── Users/
+│   │       ├── Users.test.tsx
+│   │       ├── Users.tsx
+│   │       └── _users.scss
+│   └── types/
+│       ├── filterTypes.ts
+│       └── userTypes.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── vitest.config.ts
+└── vitest.setup.ts
+├── .git/
+├── .gitignore
+├── dist/
+├── eslint.config.js
+├── index.html
+├── node_modules/
+├── package-lock.json
+|__ package.json
 
 ```
 
