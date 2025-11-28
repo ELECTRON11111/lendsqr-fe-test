@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, beforeEach, afterEach, vi } from "vitest";
 
-// Mock react-router-dom before importing the component so hooks can be mocked
 vi.mock("react-router-dom", () => ({
     useParams: vi.fn(),
     useNavigate: vi.fn(),
@@ -11,7 +10,6 @@ vi.mock("react-router-dom", () => ({
     Link: () => <a />,
 }));
 
-import { useParams } from "react-router-dom";
 import UserDetails from "./UserDetails";
 
 describe("User Details Page", () => {
@@ -79,6 +77,7 @@ describe("User Details Page", () => {
     expect(screen.getAllByText(user.phoneNumber)[0]).toBeInTheDocument();
     expect(screen.queryByText("User not available")).not.toBeInTheDocument();
   });
+  
   it("shows 'User not available' when there are no users in localStorage backup", () => {
     localStorage.removeItem("users");
     render(<UserDetails />);
