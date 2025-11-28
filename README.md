@@ -147,7 +147,7 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 
 Users data was fetched using an external mock API called Beeceptor.
 The unique backend URL provided for my account is `https://omoniyiopemipo.free.beeceptor.com`
-The users data is gotten under the `/users` API endpoint. Therefore the data is on [https://omoniyiopemipo.free.beeceptor.com/users](https://omoniyiopemipo.free.beeceptor.com/users).
+The users data is gotten under the `/users` API endpoint. Therefore the data is on [https://omoniyiopemipo.free.beeceptor.com/users](https://omoniyiopemipo.free.beeceptor.com/users) - click to view.
 It contains a total of 500 JSON user items of the format 
 
 ```
