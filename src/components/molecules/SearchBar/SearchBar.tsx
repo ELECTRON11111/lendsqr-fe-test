@@ -1,4 +1,3 @@
-import "./_searchBar.scss";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import searchIcon from "../../../assets/images/dashboard-header/search-icon.svg";

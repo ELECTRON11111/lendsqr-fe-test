@@ -1,4 +1,3 @@
-import "./_users.scss";
 import { useState, useEffect, useMemo, Suspense } from "react";
 import Dashboard from "../../components/templates/Dashboard/Dashboard";
 import Card from "../../components/atoms/Card/Card";
